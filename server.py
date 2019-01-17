@@ -1,46 +1,43 @@
 #!/bin/env python3
 
 import flask
-import RPi.GPIO as GPIO
+# Will be useful later.
+#import RPi.GPIO as GPIO
 import time
 TPL = flask.render_template
 
 app = flask.Flask(__name__, template_folder='.')
 
+# Will be useful later.
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setwarnings(False)
+#GPIO.setup(18,GPIO.OUT)
+#print("LED on")
+#GPIO.output(18,GPIO.HIGH)
+#time.sleep(1)
+#print ("LED off")
+#GPIO.output(18,GPIO.LOW)
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(18,GPIO.OUT)
+# Main page
 
-
-@app.route('/')
 def info():
-    print("LED on")
-    GPIO.output(18,GPIO.HIGH)
-    time.sleep(1)
-    print ("LED off")
-    GPIO.output(18,GPIO.LOW)
     data = """\
     Benoit benoit benoit benoit
     """
-    return TPL("default.html", title='Home', data=data)
+    return TPL("default.html", data=data)
 
+# Example of parameter in a URL
 @app.route('/paramurl/<int:number>')
 def paramurl(number):
-    print("Number")
+    print("Number :")
     print(number)
     data = """\
     You put {} in the URL.
     """.format(number)
-    return TPL("default.html", title='ParamUrl', data=data)
+    return TPL("default.html", data=data)
 
 
-
-@app.route('/forbidden')
-def forbidden():
-    flask.abort(403)
-
-print("PATH =====>", app.instance_path)
+# Starts the server on port 5000
 if __name__ == '__main__':
     app.config['DEBUG'] = True
     app.secret_key = 'test'
