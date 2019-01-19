@@ -19,7 +19,7 @@ app = flask.Flask(__name__, template_folder='.')
 #GPIO.output(18,GPIO.LOW)
 
 # Main page
-
+@app.route('/')
 def info():
     data = """\
     Benoit benoit benoit benoit
