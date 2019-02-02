@@ -1,0 +1,5 @@
+Bonjour cher journal !
+
+J'ai fait une super rencontre aujourd'hui ! On a passé l'après midi à côté d'un mur à installer des distributions Linux sur des Raspberry Pi, c'était très amusant.
+
+Je t'ai joint une image qui s'appelle monmeilleurami.jpeg. Je sais que tu ne peux lire que du texte, mais on m'a dit qu'il existait une bibliothèque qui permette d'afficher des images sous forme de texte dans la console. Il faut installer caca-utils et lancer cacaview suivi du nom du fichier.
